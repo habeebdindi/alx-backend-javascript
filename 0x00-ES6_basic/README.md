@@ -1,0 +1,1 @@
+## This directory contains basic JavaScript files performing simple actions
