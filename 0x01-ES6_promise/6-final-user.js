@@ -7,6 +7,6 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
 	uploadPhoto(fileName),
 	signUpUser(firstName, lastName)
     ]).then((messages) => {
-	console.log(messages);
+	return messages;
     });
 }
