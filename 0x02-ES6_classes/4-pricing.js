@@ -29,6 +29,6 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
-    return Math.floor(this._amount * conversionRate);
+    return Math.floor(amount * conversionRate);
   }
 }
