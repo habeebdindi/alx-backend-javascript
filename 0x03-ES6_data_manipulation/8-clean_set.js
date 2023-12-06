@@ -1,10 +1,12 @@
-export default function cleanSet(set, startString) {
-  let string = '';
-  set.forEach((value) => {
-    if (value.startsWith(startString) && startString.length > 0) {
-      const remaining = value.substring(startString.length);
-      string += `${remaining}-`;
-    }
-  });
-  return string.slice(0, -1);
+function cleanSet(set, startString) {
+    let result = '';
+    set.forEach(value => {
+        if (value.startsWith(startString)) {
+            const remaining = value.substring(startString.length);
+            result += remaining + '-';
+        }
+    });
+    return result.slice(0, -1);
 }
+
+export default cleanSet;
