@@ -1,15 +1,14 @@
-const { spawn } = require('node:child_process');
+process.stdin.setEncoding('utf8');
 
-const childproc = spawn('cat');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-process.stdin.pipe(childproc.stdin);
-
-console.log('Welcome to Holberton School, what is your name?');
-
-childproc.stdout.on('data', (data) => {
-  process.stdout.write(`Your name is: ${data}`);
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null && chunk !== '\r') {
+    process.stdout.write(`Your name is: ${chunk}`);
+  }
 });
 
-childproc.on('exit', () => {
-  console.log('This important software is now closing');
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
